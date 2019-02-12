@@ -83,7 +83,7 @@ namespace MoxiWorks.Platform
         {
             var builder =
                 new UriBuilder($"seller_transactions/{moxiworksTransactionId}")
-            .AddQueryPerameterAgentId(agentId,agentIdType);
+            .AddQueryParameterAgentId(agentId,agentIdType);
 
             return await Client.GetRequestAsync<SellerTransaction>(builder.GetUrl());
         }
@@ -122,7 +122,7 @@ namespace MoxiWorks.Platform
             string moxiworksContactId = null, string partnerContactId = null, int pageNumber = 1)
         {
             var builder = new UriBuilder("seller_transactions")
-            .AddQueryPerameterAgentId(agentId,agentIdType)
+            .AddQueryParameterAgentId(agentId,agentIdType)
             .AddQueryParameter("partner_contact_id", partnerContactId)
             .AddQueryParameter("moxi_works_contact_id", moxiworksContactId)
             .AddQueryParameter("page_number", pageNumber);

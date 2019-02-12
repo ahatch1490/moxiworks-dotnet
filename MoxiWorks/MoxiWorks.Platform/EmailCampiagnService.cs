@@ -49,7 +49,7 @@ namespace MoxiWorks.Platform
             string partnerContactId)
         {
             var builder = new UriBuilder("email_campaigns")
-            .AddQueryPerameterAgentId(agentId, agentIdType)
+            .AddQueryParameterAgentId(agentId, agentIdType)
             .AddQueryParameter("partner_contact_id", partnerContactId);
 
             var res =  await Client.GetRequestAsync<List<EmailCampaign>>(builder.GetUrl());

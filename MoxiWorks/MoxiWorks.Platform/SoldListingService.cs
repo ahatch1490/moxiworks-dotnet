@@ -69,7 +69,7 @@ namespace MoxiWorks.Platform
              ,string lastMoxiWorksListingId = null)
         {
             var builder = new UriBuilder("sold_listings/")
-                .AddQueryPerameterAgentId(agentId, agentIdType)
+                .AddQueryParameterAgentId(agentId, agentIdType)
                 .AddQueryParameter("moxi_works_company_id", moxiWorksCompanyId)
                 .AddQueryParameter("updated_since", updatedSince)
                 .AddQueryParameter("last_moxi_works_listing_id", lastMoxiWorksListingId);

@@ -68,7 +68,7 @@ namespace MoxiWorks.Platform
             string moxiWorksContactId, string partnerContactId)
         {
             var builder = new UriBuilder("action_logs")
-                .AddQueryPerameterAgentId(agentId, agentIdType)
+                .AddQueryParameterAgentId(agentId, agentIdType)
                 .AddQueryParameter("moxi_works_contact_id", moxiWorksContactId)
                 .AddQueryParameter("partner_contact_id", partnerContactId);
             return await Client.GetRequestAsync<ActionLogResults>(builder.GetUrl());

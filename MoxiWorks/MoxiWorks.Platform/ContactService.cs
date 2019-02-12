@@ -44,7 +44,7 @@ namespace MoxiWorks.Platform
         public async Task<Response<Contact>> GetContactAsync(string agentId, AgentIdType agentIdType, string partnerContactId)
         {
             var builder = new UriBuilder($"contacts/{partnerContactId}")
-            .AddQueryPerameterAgentId(agentId,agentIdType);
+            .AddQueryParameterAgentId(agentId,agentIdType);
 
             return await Client.GetRequestAsync<Contact>(builder.GetUrl());
         }
@@ -259,7 +259,7 @@ namespace MoxiWorks.Platform
 
             var builder = new UriBuilder("contacts");
 
-            builder.AddQueryPerameterAgentId(agentId,agentIdType)
+            builder.AddQueryParameterAgentId(agentId,agentIdType)
             .AddQueryParameter("email_address", emailAddress)
             .AddQueryParameter("contact_name", contactName)
             .AddQueryParameter("phone_number", phoneNumber)

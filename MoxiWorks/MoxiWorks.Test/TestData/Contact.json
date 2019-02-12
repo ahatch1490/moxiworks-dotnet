@@ -41,6 +41,11 @@
       "url": null
     }
   ],
+  "groups":[
+    "this group",
+    "that group",
+    "the other group"
+  ],
   "property_url": "http://my.property.website.is/here",
   "property_mls_id": "abc123",
   "property_street_address": "2345 67th place",

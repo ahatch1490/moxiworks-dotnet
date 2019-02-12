@@ -18,7 +18,7 @@ namespace MoxiWorks.Test
         public void ShouldIncludeAgentUuidByType()
         {
             var builder = new UriBuilder();
-            builder.AddQueryPerameterAgentId("foo", AgentIdType.AgentUuid); 
+            builder.AddQueryParameterAgentId("foo", AgentIdType.AgentUuid); 
             
             Assert.Contains("agent_uuid=foo",builder.GetUrl());
         }
@@ -27,7 +27,7 @@ namespace MoxiWorks.Test
         public void ShouldIncludeMoxiWorksAgentId()
         {
             var builder = new UriBuilder();
-            builder.AddQueryPerameterAgentId("foo", AgentIdType.MoxiWorksagentId); 
+            builder.AddQueryParameterAgentId("foo", AgentIdType.MoxiWorksagentId); 
             
             Assert.Contains("moxi_works_agent_id=foo",builder.GetUrl());
         }
@@ -36,7 +36,7 @@ namespace MoxiWorks.Test
         public void ShouldNotIncludeAgentId()
         {
             var builder = new UriBuilder();
-            builder.AddQueryPerameterAgentId("foo", AgentIdType.NotAvaliable); 
+            builder.AddQueryParameterAgentId("foo", AgentIdType.NotAvaliable); 
             
             Assert.DoesNotContain("moxi_works_agent_id=foo",builder.GetUrl());
             Assert.DoesNotContain("agent_uuid=foo",builder.GetUrl());

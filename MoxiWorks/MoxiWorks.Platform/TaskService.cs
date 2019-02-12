@@ -45,7 +45,7 @@ namespace MoxiWorks.Platform
             string partnerTaskId)
         {
             var builder = new UriBuilder($"task/{partnerTaskId}")
-            .AddQueryPerameterAgentId(agentId,agentIdType)
+            .AddQueryParameterAgentId(agentId,agentIdType)
             .AddQueryParameter("partner_contact_id", partnerContactId);
 
             return await Client.GetRequestAsync<Task>(builder.GetUrl()); 
@@ -162,7 +162,7 @@ namespace MoxiWorks.Platform
             DateTime? endDate, string partnerContactId, int pageNumber = 1)
         {
             var builder = new UriBuilder($"tasks")
-                .AddQueryPerameterAgentId(agentId,agentIdType)
+                .AddQueryParameterAgentId(agentId,agentIdType)
                 .AddQueryParameter("date_due_start",startDate)
                 .AddQueryParameter("date_due_end",endDate)
                 .AddQueryParameter("partner_contact_id", partnerContactId)

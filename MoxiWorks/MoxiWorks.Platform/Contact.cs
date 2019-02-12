@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace MoxiWorks.Platform
 {
@@ -34,7 +35,7 @@ namespace MoxiWorks.Platform
         /// This is the Moxi Works Platform ID of this Contact. This will be an RFC 4122 compliant UUID.
         /// <summary>
         [JsonProperty("moxi_works_contact_id")]
-        public string MoxiWorksContactId { get; set; }
+        public string MoxiWorksContactIdMoxiWorksContactId { get; set; }
         /// This is the full name of the contact you are creating a Contact record for. 
         /// You should format this information as first middle last.
         /// </summary>
@@ -279,5 +280,11 @@ namespace MoxiWorks.Platform
         /// </summary>
         [JsonProperty("category_names")]
         public string CategoryNames { get; set; }
+        
+        /// <summary>
+        /// array  of group names 
+        /// </summary>
+        [JsonProperty("groups")]
+        public List<string> Groups { get; set; }
     }
 }

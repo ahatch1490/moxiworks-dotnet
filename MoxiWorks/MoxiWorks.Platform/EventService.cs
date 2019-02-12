@@ -65,7 +65,7 @@ namespace MoxiWorks.Platform
         public async Task<Response<Event>> GetEventAsync(string agentId, AgentIdType agentIdType, string partnerEventId)
         {
             var builder = new UriBuilder($"events/{partnerEventId}")
-            .AddQueryPerameterAgentId(agentId,agentIdType);
+            .AddQueryParameterAgentId(agentId,agentIdType);
             return await Client.GetRequestAsync<Event>(builder.GetUrl());
         }
 
@@ -97,7 +97,7 @@ namespace MoxiWorks.Platform
         public  async Task<Response<EventResults>> GetEventsByDateAsync(string agentId, AgentIdType agentIdType, int eventStart, int eventEnd)
         {
             var builder = new UriBuilder("events")
-            .AddQueryPerameterAgentId(agentId, agentIdType)
+            .AddQueryParameterAgentId(agentId, agentIdType)
             .AddQueryParameter("date_start", eventStart)
             .AddQueryParameter("date_end", eventEnd);
 
@@ -138,7 +138,7 @@ namespace MoxiWorks.Platform
         public async Task<Response<EventDeleteResult>> DeleteEventAsync(string agentId, AgentIdType agentIdType, string eventId)
         {
             var builder = new UriBuilder($"events/{eventId}")
-            .AddQueryPerameterAgentId(agentId, agentIdType);
+            .AddQueryParameterAgentId(agentId, agentIdType);
 
             return await Client.DeleteRequestAsync<EventDeleteResult>(builder.GetUrl());
 

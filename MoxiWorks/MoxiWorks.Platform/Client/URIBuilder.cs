@@ -92,7 +92,7 @@ namespace MoxiWorks.Platform
             return this; 
         }
 
-        public UriBuilder AddQueryPerameterAgentId(string agentId, AgentIdType agentIdType)
+        public UriBuilder AddQueryParameterAgentId(string agentId, AgentIdType agentIdType)
         {
             if (agentIdType == AgentIdType.NotAvaliable)
                 return this; 

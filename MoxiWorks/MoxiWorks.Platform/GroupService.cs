@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MoxiWorks.Platform.Interfaces;
 
@@ -40,7 +41,7 @@ namespace MoxiWorks.Platform
         public async Task<Response<Group>> GetGroupAsync(string agentId, AgentIdType agentIdType, string moxiWorksGroupId)
         {
             var builder = new UriBuilder($"groups/{moxiWorksGroupId}")
-            .AddQueryPerameterAgentId(agentId,agentIdType);
+            .AddQueryParameterAgentId(agentId,agentIdType);
 
             return await Client.GetRequestAsync<Group>(builder.GetUrl());
         }
@@ -66,11 +67,13 @@ namespace MoxiWorks.Platform
         /// <param name="agentIdType">What agentId type you are using.</param>
         /// <param name="name">This is the name of a Group to be searched for.</param>
         /// <returns></returns>
-        public async Task<Response<ICollection<GroupItem>>> GetGroupsAsync(string agentId, AgentIdType agentIdType, string name = null)
+        public async Task<Response<ICollection<GroupItem>>> GetGroupsAsync(string agentId, AgentIdType agentIdType, 
+            string name = null, DateTime? updatedSince = null )
         {
             var builder = new UriBuilder("groups")
-            .AddQueryPerameterAgentId(agentId,agentIdType)
-            .AddQueryParameter("name", name);
+                .AddQueryParameterAgentId(agentId, agentIdType)
+                .AddQueryParameter("name", name)
+                .AddQueryParameter("updated_since", updatedSince); 
             var results = await Client.GetRequestAsync<List<GroupItem>>(builder.GetUrl());
 
             return new Response<ICollection<GroupItem>>

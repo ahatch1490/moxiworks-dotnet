@@ -55,7 +55,7 @@ namespace MoxiWorks.Platform
         public async Task<Response<BrandResults>> GetBrandsAsync(string moxiWorksCompanyId, string agentId = null)
         {
             var builder = new UriBuilder($"brands")
-                .AddQueryPerameterAgentId(agentId, AgentIdType.MoxiWorksagentId)
+                .AddQueryParameterAgentId(agentId, AgentIdType.MoxiWorksagentId)
                 .AddQueryParameter("moxi_works_company_id", moxiWorksCompanyId);
             return await Client.GetRequestAsync<BrandResults>(builder.GetUrl());
         }

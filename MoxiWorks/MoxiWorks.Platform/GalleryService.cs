@@ -43,7 +43,7 @@ namespace MoxiWorks.Platform
         public async Task<Response<GalleryResults>> GetAgentGalleries(string agentId, AgentIdType agentIdType, string moxiWorksCompanyId)
         {
             var builder = new UriBuilder("gallery")
-                .AddQueryPerameterAgentId(agentId, agentIdType)
+                .AddQueryParameterAgentId(agentId, agentIdType)
                 .AddQueryParameter("moxi_works_company_id", moxiWorksCompanyId);
 
             return await Client.GetRequestAsync<GalleryResults>(builder.GetUrl());
